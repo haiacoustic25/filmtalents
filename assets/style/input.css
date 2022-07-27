@@ -1,0 +1,154 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.swiper {
+  width: 100%;
+  height: 100vh;
+}
+
+.swiper-slide-active .slide {
+  transition: opacity 500ms linear 0s;
+
+  margin: 0px;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+
+  animation-name: transform;
+  animation-direction: ease;
+  animation-duration: 7s;
+  animation-delay: 700ms;
+  backface-visibility: hidden;
+  box-shadow: rgb(255 255 255) 0px 0px 1px;
+  outline: transparent solid 1px;
+
+  opacity: 0.7;
+  transform: scale(1.05);
+}
+
+.contact {
+  position: fixed;
+  font-weight: 500;
+  top: 50%;
+  right: 30px;
+  transform: rotate(-90deg) translate(50%, -25px);
+  transform-origin: right top;
+  z-index: 300;
+  opacity: 1;
+  pointer-events: all;
+}
+
+.animation__hover--one {
+  width: 0%;
+  transition: all 1s;
+}
+
+.animation__hover--two {
+  width: 0%;
+  transition: all 1s;
+}
+
+.animation__hover--three {
+  height: 0%;
+  transition: all 1s;
+}
+
+.animation__hover--four {
+  width: 0%;
+  transition: all 1s;
+}
+
+.hardwriting {
+  transition: all 1s ease;
+  transition-delay: 1s;
+}
+
+.swiper-slide-active .textHandwriting {
+  animation: animate 4s linear 1 forwards;
+}
+
+.menu-btn {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+.menu-btn__burger {
+  width: 20px;
+  height: 2px;
+  background: black;
+  transition: all 0.5s ease-in-out;
+}
+.menu-btn__burger::before,
+.menu-btn__burger::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 2px;
+  background: black;
+  transition: all 0.5s ease-in-out;
+}
+.menu-btn__burger::before {
+  transform: translateY(-8px);
+}
+.menu-btn__burger::after {
+  transform: translateY(8px);
+}
+/* ANIMATION */
+.menu-btn.open .menu-btn__burger {
+  transform: translateX(-50px);
+  background: transparent;
+  box-shadow: none;
+}
+.menu-btn.open .menu-btn__burger::before {
+  transform: rotate(45deg) translate(35px, -35px);
+}
+.menu-btn.open .menu-btn__burger::after {
+  transform: rotate(-45deg) translate(35px, 35px);
+}
+
+.lists__menu {
+  /* transform: translate3d(100%, 0, 0); */
+  left: 100%;
+  transition: all 0.5s ease-in-out;
+}
+
+.lists__menu.open {
+  /* transform: translate3d(0, 0, 0); */
+  left: 0;
+  /* width: 100px; */
+}
+
+.revealUp {
+  transform: translateY(100px);
+  opacity: 0;
+}
+.revealUp.open {
+  transform: translateY(0px);
+  opacity: 1;
+  transition: all 1s;
+}
+
+.revealUp.close {
+  transform: translateY(-100px);
+  opacity: 0;
+  transition: all 1s;
+}
+
+@keyframes animate {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes transform {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
